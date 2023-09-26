@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>demo1</title>
-        <script src="./IsometrySrcFiles/isometry.js"></script>
-    </head>
-    <body>
-        <button onclick="test()">eeeeeeeeeeeeee</button>
-        <script>
-            const Iso = new Isometry;
-            const render = new Iso.RenderEngine;
-            function test(){
-            render.cube(0,0,0)
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="./IsometrySrcFiles/isometry.js"></script>
+</head>
+
+<body>
+    <button onclick="test()">eeeeeeeeeeeeee</button>
+    <script>
+        const Iso = new Isometry;
+        const render = new Iso.RenderEngine;
+        async function test() {
+            await render.cube(0, 0)
+            await render.cube(0, 1)
+            await render.cube(1, 0)
+            await render.cube(1, 1)
         }
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>
