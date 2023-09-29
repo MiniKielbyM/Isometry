@@ -1,6 +1,5 @@
 class Isometry {
   constructor() {
-
     var canvas = document.createElement('canvas');
     canvas.width = 320;
     canvas.height = 322;
