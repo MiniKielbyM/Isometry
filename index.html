@@ -8,21 +8,27 @@
 </head>
 
 <body>
-    <button onclick="test()">test</button>
+    <button onclick='buildTest()'>test</button>
     <script>
-        const Iso = new Isometry;
-        const render = new Iso.RenderEngine;
-        async function test() {
-            await render.cube(0, 0)
-            await render.cube(0, 1)
-            await render.cube(1, 0)
-            await render.cube(1, 1)
-        }
-        async function test1(){
-            test();
-            setTimeout(test(), 1000)
-        }
-    </script>
+const Iso = new Isometry();
+const render = new Iso.RenderEngine();
+function test() {
+  render.cube(0, 0);
+  render.cube(0, 1);
+  render.cube(1, 0);
+  render.cube(1, 1);
+}
+async function build() {
+  await test();
+  setTimeout(() => {
+    test();
+  }, "1000");
+}
+function buildTest() {
+  render.build("test()");
+}
+
+</script>
 </body>
 
 </html>
