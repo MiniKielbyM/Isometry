@@ -14,15 +14,15 @@ class Isometry {
     document.body.appendChild(canvas);
   }
   RenderEngine = class {
-    TestCube() {
-      var canvasIso = document.getElementById('Iso_Engine_Canvas')
-      var ctx = canvasIso.getContext('2d');
-      var img = new Image();
-      img.src = 'https://github.com/MiniKielbyM/Isometry/blob/main/IsometrySrcFiles/Elements/element_0.png?raw=true';
-      img.onload = function () {
-        ctx.drawImage(img, 144, 64);//0, 0
-      }
-    }
+    /*    TestCube() {
+          var canvasIso = document.getElementById('Iso_Engine_Canvas')
+          var ctx = canvasIso.getContext('2d');
+          var img = new Image();
+          img.src = 'https://github.com/MiniKielbyM/Isometry/blob/main/IsometrySrcFiles/Elements/element_0.png?raw=true';
+          img.onload = function () {
+            ctx.drawImage(img, 144, 64);//0, 0
+          }
+        }   */
     async cube(x = 0, y = 0) {
       var canvasIso = document.getElementById('Iso_Engine_Canvas')
       var ctx = canvasIso.getContext('2d');
@@ -30,8 +30,14 @@ class Isometry {
       img.src = 'https://github.com/MiniKielbyM/Isometry/blob/main/IsometrySrcFiles/Elements/element_0.png?raw=true';
       img.onload = async function () {
         await ctx.drawImage(img, 144 - (Math.round(y) * 16) + (Math.round(x) * 16), 64 + (Math.round(y) * 8) + (Math.round(x) * 8));//0, 0
-        setTimeout(console.log("test"),5000)  
+        setTimeout(console.log("test"), 5000)
       }
+
+    }
+    async build(buildFunc = "IsoBuild()") {
+      var func = new Function(buildFunc);
+      await func();
+      setTimeout(() => { func(); }, "1000");
 
     }
 
